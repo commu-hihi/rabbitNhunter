@@ -1,0 +1,85 @@
+<!-- ^^ 홧팅~ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rabbit and Hunter</title>
+    <link rel="stylesheet" href="css/body.css" type="text/css">
+    <script src="game.js"></script>
+</head>
+<body>
+    <header><h1><span class="eien">R</span>abbit and <span class="kyoka">H</span>unter</h1></header>
+    <main>
+    <div>
+        <p id="eienSays">  </p>
+    </div>
+    <div id="info">
+        <table>
+            <td width=12%;></td>
+            <td>HUNTER WINS:</td>
+            <td id="hunterWinC">0</td>
+            <td width=40%;></td>
+            <td >TURN:</td>
+            <td width=110px; id="turn">PRESS START BUTTON</td>
+            <td><button id="toHunter" type="button" onclick="hunterTurn(); rabbitMove(); isRabbitWin(); fieldShow();">move rabbit</button></td>
+        </table>
+    </div>
+    <hr>
+    <div id="field">
+        <table>
+            <tr>
+                <td>START</td>
+                <td><button type="button" value="1" onclick="rabbitTurn(); shoot(this);">1</button></td>
+                <td>|</td>
+                <td><button type="button" value="2" onclick="rabbitTurn(); shoot(this);">2</button></td>
+                <td>|</td>
+                <td><button type="button" value="3" onclick="rabbitTurn(); shoot(this);">3</button></td>
+                <td>|</td>
+                <td><button type="button" value="4" onclick="rabbitTurn(); shoot(this);">4</button></td>
+                <td>|</td>
+                <td><button type="button" value="5" onclick="rabbitTurn(); shoot(this);">5</button></td>
+                <td>|</td>
+                <td><button type="button" value="6" onclick="rabbitTurn(); shoot(this);">6</button></td>
+                <td>|</td>
+                <td><button type="button" value="7" onclick="rabbitTurn(); shoot(this);">7</button></td>
+                <td>FINISH</td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+                <td><button type="button" value="1" onclick="rabbitTurn(); wall(this);">1</button></td>
+                <td></td>
+                <td><button type="button" value="2" onclick="rabbitTurn(); wall(this);">2</button></td>
+                <td></td>
+                <td><button type="button" value="3" onclick="rabbitTurn(); wall(this);">3</button></td>
+                <td></td>
+                <td><button type="button" value="4" onclick="rabbitTurn(); wall(this);">4</button></td>
+                <td></td>
+                <td><button type="button" value="5" onclick="rabbitTurn(); wall(this);">5</button></td>
+                <td></td>
+                <td><button type="button" value="6" onclick="rabbitTurn(); wall(this);">6</button></td>
+                <td colspan="2"></td>
+            </tr>
+        </table>
+    </div>
+    <div id="button">
+        <hr>
+        <p><button id="startButton" onclick="gameStart(); start(); fieldShow();">GAME START</button></p>
+    <button id="rulesButton" onclick="showRules()">RULES</button>
+    </div>
+    <footer id="rule">
+        <h3>Rules</h3>
+        <li>YOU are the hunter. you must catch the rabbit.</li>
+        <li>First, the rabbit takes turn.</li>
+        <li>The rabbit can move up to 7 spaces.</li>
+        <li>also, The rabbit can move 7 minus the number of spaces it has moved before</li>
+        <li>Alternately move forward and backward on the rabbit's turn.</li>
+        <li>And the hunter takes turn.</li>
+        <li>The hunter can shoot or block.</li>
+        <li>If you shoot, get chance to catch the rabbit.</li>
+        <li>If you block, restrict the rabbit's move.</li>
+        <li>When the hunter catches the rabbit, the hunter wins. </li>
+        <li>When the rabbit reach the goal, the rabbit wins.</li>
+    </footer>
+    </main>
+</body>
+</html>
