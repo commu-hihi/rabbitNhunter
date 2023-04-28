@@ -10,6 +10,9 @@ hunterWins = 0;
 turn = "RABBIT";
 turnCount = 10;
 
+choose.style.display = 'none';
+erabe.style.display = 'none';
+
 
 //게임시작
 function gameStart() {
