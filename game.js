@@ -6,9 +6,10 @@ rabbitBoolean = false;
 
 hunterWall = 0;
 hunterWins = 0;
-hunterWinC = 0;
 
 turn = "RABBIT";
+turnCount = 10;
+
 
 //게임시작
 function gameStart() {
@@ -17,6 +18,7 @@ function gameStart() {
 
   const startButton = document.getElementById('startButton');
   startButton.style.visibility = 'hidden';
+  turnCount=10;
  
 }
 
@@ -40,13 +42,17 @@ function rabbitMove() {
 
 }
 
+//토끼이동계산
 function cal() {
 
   
   if (rabbitBoolean == false) {
 
     if (rabbitPlace > hunterWall) {
-
+      if ((rabbitPlace+rabbitSpace)>=8) {
+        rabbitPlace = 8;
+        return;
+      }
       rabbitPlace = rabbitPlace + random (rabbitSpace, 1);
 
     } else {
@@ -72,7 +78,8 @@ function cal() {
         rabbitPlace = rabbitPlace - random(rabbitSpace, 0);
         
         if (rabbitPlace <= hunterWall) {
-          rabbitPlace = hunterWall;
+    
+           rabbitPlace = ++hunterWall;
         }
 
       } else if (hunterWall < (rabbitPlace-rabbitSpace)) {
@@ -94,7 +101,6 @@ function cal() {
 
   }
   rabbitBoolean = !rabbitBoolean;
-
 }
 
 function start() {
@@ -118,7 +124,6 @@ function rabbitTurn() {
 
 function isRabbitWin() {
   if (rabbitPlace >= 8) {
-    alert("The rabbit wins!!")
     //게임초기화
     rabbitPlace = 0;
     rabbitSpace = 0;
@@ -126,6 +131,9 @@ function isRabbitWin() {
     const turn = document.getElementById("turn");
     turn.innerHTML = "PRESS START BUTTON";
     startButton.style.visibility = 'visible';
+    const field = document.getElementById('field');
+    field.style.visibility = 'hidden';
+    alert("The rabbit wins!!")
   }
 }
 
@@ -143,14 +151,20 @@ function shoot(bt) {
   if (bt.value == rabbitPlace) {
     ishunterWin();
   }
+  turnCount--;
+  document.getElementById("turnC").innerText = turnCount;
   fieldHide();
+  countDown();
 }
 
 function wall(btt) {
   const toHunter = document.getElementById('toHunter');
   toHunter.style.visibility = 'visible';
   hunterWall = btt.value;
+  turnCount--;
+  document.getElementById("turnC").innerText = turnCount;
   fieldHide();
+  countDown();
 }
 
 function ishunterWin() {
@@ -159,6 +173,7 @@ function ishunterWin() {
   rabbitPlace = 0;
   rabbitSpace = 0;
   rabbitBoolean = 0;
+  turnCount = 11;
   const turn = document.getElementById("turn");
   turn.innerHTML = "PRESS START BUTTON";
   startButton.style.visibility = 'visible';
@@ -183,19 +198,41 @@ function showRules() {
 
 
 //승리수
-
-
 function winsCount() {
-  const hunterWinC = document.getElementById("hunterWinC");
-  hunterWinC.innerText = ++hunterWins;
+  hunterWins++;
+  document.getElementById("hunterWinC").innerText = hunterWins;
+  eienSaid();
+}
+
+//카운트다운
+function countDown() {
+  if (turnCount == 0) {
+    alert("The rabbit wins!!")
+    //게임초기화
+    rabbitPlace = 0;
+    rabbitSpace = 0;
+    rabbitBoolean = 0;
+    const turn = document.getElementById("turn");
+    turn.innerHTML = "PRESS START BUTTON";
+    startButton.style.visibility = 'visible';
+    const field = document.getElementById('field');
+    field.style.visibility = 'hidden';
+    toHunter.style.visibility = 'hidden';
+  }
 }
 
 function eienSaid() {
   const eienSays = document.getElementById("eienSays");
-  if (hunterWins = 1 ) {
-    eienSays.innerHTML = "HEY,";
-  } else {
-
+  if (hunterWins == 1) {
+    eienSays.innerHTML = "<button>YES</button><button>NO</button>";
+  } else if (hunterWins == 2) {
+    eienSays.innerHTML = "2";
+  } else if (hunterWins == 3) {
+    eienSays.innerHTML = "3";
+  } else if (hunterWins == 4) {
+    eienSays.innerHTML = "4";
+  } else if (hunterWins == 5) {
+    eienSays.innerHTML = "5";
   }
   return;
 }
