@@ -134,6 +134,7 @@ function isRabbitWin() {
     field.style.visibility = 'hidden';
     alert("The rabbit wins!!")
     turnC.innerHTML = "10";
+    turnCount = 10;
   }
 }
 
@@ -196,6 +197,21 @@ function showRules() {
   }
 
 
+//타이틀
+function mouson() {
+
+  eien.style.color = 'pink';
+  kyoka.style.color = 'skyblue';
+
+}
+
+function mousout() {
+
+  eien.style.color = 'black';
+  kyoka.style.color = 'black';
+
+}
+  
 
 //승리수
 function winsCount() {
@@ -219,67 +235,84 @@ function countDown() {
     field.style.visibility = 'hidden';
     toHunter.style.visibility = 'hidden';
     turnC.innerHTML = "10";
+    turnCount = 10;
   }
 }
 
 function eienSaid() {
   const eienSays = document.getElementById("eienSays");
   if (hunterWins == 1) {
-    eienSays.innerHTML = "I know we are togrther so long,";
+    eienSays.innerHTML = "うゎ、ななみつが負けた？！あんた、ラッキーじゃん～";
   } else if (hunterWins == 2) {
-    eienSays.innerHTML = "So... I want to konw. Do you like me?";
+    eienSays.innerHTML = "お、いがいとうまいじゃん？ななみつ、次はぜひ勝つぞ！何する？早くスタートして！";
   } else if (hunterWins == 3) {
+    eienSays.innerHTML = "また？！もう一回!! おねがい～！！！アイス買うから〜！！！";
     document.getElementById('choose');
     choose.style.display = 'block';
   }
   return;
 }
 
+//선택지
 function clickYes() {
-  eienSays.innerHTML = "Really?! ...I like you so much too!!!";
+  eienSays.innerHTML = "本当に？";
+  const turn = document.getElementById("turn");
+  turn.innerHTML = "";
+  document.getElementById('choose');
+  choose.style.display = 'none';
+  erabe.style.display = 'none';
+
   setTimeout(function() {
-    eienSays.innerHTML = "We'll be together for a long time now.";
+    eienSays.innerHTML = "やったー！どんどんつぎいこう！次は一億かけよう！";
   }, 1000);
   setTimeout(function() {
-    eienSays.innerHTML = "Like,";
+    eienSays.innerHTML = "うん？いえにかえりたい？";
   }, 3500);
   
   setTimeout(function() {
-    eienSays.innerHTML = "Foerever";
-  }, 4500);
+    eienSays.innerHTML = "だ～め。やくそくしたじゃん。";
+  }, 6000);
+
+  setTimeout(function() {
+    eienSays.innerHTML = "えいえんと えいえんに ギャンブルすると";
+  }, 8000);
 
   setTimeout(function() {
     rabbitPlace = 0;
     rabbitSpace = 0;
     rabbitBoolean = 0;
     const turn = document.getElementById("turn");
-    turn.innerHTML = "Forever.";
-    startButton.style.visibility = 'hidden';
+    turn.innerHTML = "END1";
     const field = document.getElementById('field');
     field.style.visibility = 'hidden';
     toHunter.style.visibility = 'hidden';
-    turnC.innerHTML = "Forever.";
-    document.getElementById('choose');
-    choose.style.display = 'none';
-    hunterWinC.innerHTML = "Forever.";
-  }, 5500);
+    startButton.style.visibility = 'hidden';
+    turnC.innerHTML = "";
+    hunterWinC.innerHTML = "";
+  }, 10000);
+
 }
 
 function clickNo() {
-  eienSays.innerHTML = "Oh,";
+  eienSays.innerHTML = "あ、";
+  startButton.style.visibility = 'hidden';
   setTimeout(function() {
+    eienSays.innerHTML = "またえらぶきかいをあたえるからね?";
     rabbitPlace = 0;
     rabbitSpace = 0;
     rabbitBoolean = 0;
     const turn = document.getElementById("turn");
-    turn.innerHTML = "No?";
-    startButton.style.visibility = 'hidden';
+    turn.innerHTML = "END2";
     const field = document.getElementById('field');
     field.style.visibility = 'hidden';
     toHunter.style.visibility = 'hidden';
-    turnC.innerHTML = "No?";
+    turnC.innerHTML = "";
     document.getElementById('choose');
     choose.style.display = 'none';
-    hunterWinC.innerHTML = "No?";
+    hunterWinC.innerHTML = "";
   }, 1000);
+  setTimeout(function() {
+    document.getElementById('erabe');
+    erabe.style.display = 'block';
+  }, 3000);
 }

@@ -4,17 +4,21 @@
     text-align: center;
 }
 
+#gameTitle {
+    color: black;
+}
+
 h1 {
-    color: grey;
+    color: black;
     font-size: 50px;
 }
 
-span.eien {
-    color: pink;
+#eien {
+    color: black;
 }
 
-span.kyoka {
-    color: skyblue;
+#kyoka {
+    color: black;
 }
 
 table {
@@ -47,3 +51,7 @@ td {
 #choose {
     display : none;
   }
+
+#erabe {
+    display : none;
+}
