@@ -225,18 +225,12 @@ function countDown() {
 function eienSaid() {
   const eienSays = document.getElementById("eienSays");
   if (hunterWins == 1) {
-    eienSays.innerHTML = "";
-  } else if (hunterWins == 2) {
     eienSays.innerHTML = "I know we are togrther so long,";
+  } else if (hunterWins == 2) {
+    eienSays.innerHTML = "So... I want to konw. Do you like me?";
   } else if (hunterWins == 3) {
-    eienSays.innerHTML = "So... I want to konw.";
-  } else if (hunterWins == 4) {
-    eienSays.innerHTML = "Do you like me?";
-  } else if (hunterWins == 5) {
-
     document.getElementById('choose');
     choose.style.display = 'block';
-
   }
   return;
 }
