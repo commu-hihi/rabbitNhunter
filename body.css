@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+* {
+    text-align: center;
+}
+
+
+#choose {
+    display : none;
+  }
+
+#erabe {
+    display : none;
+}
+
+#gameTitle {
+    color: black;
+}
+
+h1 {
+    color: black;
+    font-size: 50px;
+}
+
+#eien {
+    color: black;
+}
+
+#kyoka {
+    color: black;
+}
+
+table {
+    margin-left:auto;
+    margin-right:auto;
+    width: 700px; height: 80px;
+}
+
+td {
+    text-align: center;
+}
+
+#info {
+    border: 10px;
+}
+
+#rule {
+    visibility:hidden;
+}
+
+#field {
+    font-size: 20px;
+    visibility:hidden;
+}
+
+#toHunter {
+    visibility:hidden;
+}
