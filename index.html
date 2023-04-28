@@ -11,7 +11,7 @@
     <header><h1><span class="eien">R</span>abbit and <span class="kyoka">H</span>unter</h1></header>
     <main>
     <div>
-        <p id="eienSays"> &nbsp; </p>
+        <p id="eienSays"> </p>
     </div>
     <div id="info">
         <table>
@@ -66,6 +66,9 @@
     </div>
     <div id="button">
         <hr>
+        <div id="choose">
+        <button onclick="clickYes();">YES</button><button onclick="clickNo();">NO</button>
+        </div>
         <p><button id="startButton" onclick="gameStart(); start(); fieldShow();">GAME START</button></p>
     <button id="rulesButton" onclick="showRules()">RULES</button>
     </div>

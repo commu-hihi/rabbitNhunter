@@ -18,7 +18,6 @@ function gameStart() {
 
   const startButton = document.getElementById('startButton');
   startButton.style.visibility = 'hidden';
-  turnCount=10;
  
 }
 
@@ -134,6 +133,7 @@ function isRabbitWin() {
     const field = document.getElementById('field');
     field.style.visibility = 'hidden';
     alert("The rabbit wins!!")
+    turnC.innerHTML = "10";
   }
 }
 
@@ -218,21 +218,74 @@ function countDown() {
     const field = document.getElementById('field');
     field.style.visibility = 'hidden';
     toHunter.style.visibility = 'hidden';
+    turnC.innerHTML = "10";
   }
 }
 
 function eienSaid() {
   const eienSays = document.getElementById("eienSays");
   if (hunterWins == 1) {
-    eienSays.innerHTML = "<button>YES</button><button>NO</button>";
+    eienSays.innerHTML = "";
   } else if (hunterWins == 2) {
-    eienSays.innerHTML = "2";
+    eienSays.innerHTML = "I know we are togrther so long,";
   } else if (hunterWins == 3) {
-    eienSays.innerHTML = "3";
+    eienSays.innerHTML = "So... I want to konw.";
   } else if (hunterWins == 4) {
-    eienSays.innerHTML = "4";
+    eienSays.innerHTML = "Do you like me?";
   } else if (hunterWins == 5) {
-    eienSays.innerHTML = "5";
+
+    document.getElementById('choose');
+    choose.style.display = 'block';
+
   }
   return;
+}
+
+function clickYes() {
+  eienSays.innerHTML = "Really?! ...I like you so much too!!!";
+  setTimeout(function() {
+    eienSays.innerHTML = "We'll be together for a long time now.";
+  }, 1000);
+  setTimeout(function() {
+    eienSays.innerHTML = "Like,";
+  }, 3500);
+  
+  setTimeout(function() {
+    eienSays.innerHTML = "Foerever";
+  }, 4500);
+
+  setTimeout(function() {
+    rabbitPlace = 0;
+    rabbitSpace = 0;
+    rabbitBoolean = 0;
+    const turn = document.getElementById("turn");
+    turn.innerHTML = "Forever.";
+    startButton.style.visibility = 'hidden';
+    const field = document.getElementById('field');
+    field.style.visibility = 'hidden';
+    toHunter.style.visibility = 'hidden';
+    turnC.innerHTML = "Forever.";
+    document.getElementById('choose');
+    choose.style.display = 'none';
+    hunterWinC.innerHTML = "Forever.";
+  }, 5500);
+}
+
+function clickNo() {
+  eienSays.innerHTML = "Oh,";
+  setTimeout(function() {
+    rabbitPlace = 0;
+    rabbitSpace = 0;
+    rabbitBoolean = 0;
+    const turn = document.getElementById("turn");
+    turn.innerHTML = "No?";
+    startButton.style.visibility = 'hidden';
+    const field = document.getElementById('field');
+    field.style.visibility = 'hidden';
+    toHunter.style.visibility = 'hidden';
+    turnC.innerHTML = "No?";
+    document.getElementById('choose');
+    choose.style.display = 'none';
+    hunterWinC.innerHTML = "No?";
+  }, 1000);
 }

@@ -43,3 +43,7 @@ td {
 #toHunter {
     visibility:hidden;
 }
+
+#choose {
+    display : none;
+  }
